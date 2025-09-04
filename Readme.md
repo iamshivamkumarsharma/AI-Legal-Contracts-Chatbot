@@ -1,64 +1,87 @@
-**This is the documentation of Agentic RAG for Ayurveda Chatbot**
+📜 AI Legal Contracts Chatbot
 
-## Installation
-1. First clone the repository by:
-```bash
-git clone https://github.com/cyborg-geass/Ayurveda-NLP-MTP.git
-cd Ayurveda-NLP-MTP/
-```
-2. Use Miniconda to create a conda environment with python (3.10 or later) and after activating the environ install the libraries with pip
+This repository contains an AI-powered Legal Contracts QnA Chatbot built using Agentic RAG (Retrieval-Augmented Generation).
+It enables users to ask questions related to legal contracts and get accurate, context-aware responses using NLP and modern AI models.
 
-```bash
-conda create -n "name of your project" python=3.11
-conda activate "name of your project"
+The chatbot is designed for:
+
+📑 Contract Analysis – understand clauses, terms, and conditions.
+
+⚖️ Legal QnA – ask queries about legal concepts in documents.
+
+🤖 AI Assistance – augment legal workflows with intelligent search + reasoning.
+
+⚙️ Installation
+
+Clone the repository:
+
+git clone https://github.com/iamshivamkumarsharma/AI-Legal-Contracts-Chatbot.git
+cd AI-Legal-Contracts-Chatbot/
+
+
+Create a conda environment (Python 3.10 or later) and install requirements:
+
+conda create -n legal-bot python=3.11
+conda activate legal-bot
 pip install -r requirements.txt
-```
 
-## Usage with CLI
-1. Go to the multi_agent directory and create a file named '.env' in the same directory.
-```bash
+💻 Usage with CLI
+
+Go to the multi_agent directory and create a .env file:
+
 cd multi_agent/
-```
-2. In the .env file just type (don't use any spaces or ""):
-```bash
+
+
+In .env, add your keys (replace with actual values):
+
 GROQ_API_KEY=your_api_key
 TAVILY_API_KEY=your_api_key
 LANGSMITH_TRACING=true
-LANGSMITH_ENDPOINT="https://api.smith.langchain.com"
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com
 LANGSMITH_API_KEY=your_api_key
-LANGSMITH_PROJECT="Ayurveda_companion"
-```
-3. Now to start the bot just type in cmd:
-```bash
+LANGSMITH_PROJECT=Legal_Contracts_QnA
+
+
+Run the chatbot:
+
 python chatbot.py
-```
-4. To exit the chatbot just type "exit" in the terminal.
 
 
-## Usage (Local Deployment)
-1. After activting the conda environment just go to the root directory and type in terminal:
-```bash
+Exit anytime by typing:
+
+exit
+
+🌐 Usage (Local Deployment)
+
+From the root directory, run:
+
 python app.py
-```
-2. You will get a fastapi interface, now go to the post method and in the click 'Try it out' and then edit the question string with your query and execute the query, you will get the response.
 
-## Docker based (Recommended)
-1. Pull our docker image of "ayurveda_companion" from the docker hub.
-```bash
-docker pull ankit0502/ayurveda_companion
-```
-2. Run the container with .env file you created with your api keys in the project root.
-```bash
-docker run -d --env-file .env -p 8000:8000 ankit0502/ayurveda_companion
-```
-3. Now just go to browser and open "http://localhost:8000" or "http://127.0.0.1:8000 for welcome page and go to /docs and try out the api, test with postman as well.
-4. For building it from scratch, you can clone the repo and just bulid the docker image (multi staged building) as this is better with uv package rather than pip:
-```bash
-docker build -t ayurveda_companion .
-docker run -d --env-file .env -p 8000:8000 ankit0502/ayurveda_companion
-```
-5. Check your running containers:
-```bash
+
+A FastAPI server will start.
+
+Open: http://127.0.0.1:8000
+
+Go to /docs → click “Try it out”, enter your query, and execute to get responses.
+
+🐳 Docker Deployment (Recommended)
+
+Build the docker image:
+
+docker build -t legal_contracts_companion .
+
+
+Run the container with your .env file:
+
+docker run -d --env-file .env -p 8000:8000 legal_contracts_companion
+
+
+Open in browser:
+
+http://127.0.0.1:8000
+
+
+Check running containers and logs:
+
 docker ps -a
-docker logs <<container_id>>
-```
+docker logs <container_id>
